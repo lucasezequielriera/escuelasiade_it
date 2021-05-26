@@ -23,6 +23,8 @@ function App() {
         <Route path="/OfficeInicial"></Route>
         <Route path="/Proximamente"></Route>
 
+        <Route path="/BusquedaDeCurso"></Route>
+
       </Switch>
 
     </Router>

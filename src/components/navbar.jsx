@@ -1,44 +1,36 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import {Link} from 'react-router-dom';
 import logo from '../logo1.png';
 
 const Navbar = () => {
-
+    // CAMPUS Button //
     const redireccionarAlCampus = () => {
         window.location = 'http://www.campus.escuelasiade.com'
     }
-
-    const mostrarInput = () => {
-        // const cover = document.querySelector("body");
-        // const buscador = document.querySelector("#buscador");
-        // cover.style.filter = 'brightness(0.3)';
-        // buscador.style.position = 'relative';
-        // buscador.style.zIndex = 9999;
-        // buscador.style.filter = 'brightness(1)';
-        const view = document.querySelector('#view');
-        const cover = document.querySelector('#container-cover');
-        const dropdown = document.querySelector('.dropdown-menu');
-        view.style.filter = 'brightness(0)';
-        view.style.zIndex = 10;
-        cover.style.filter = 'brightness(0.3)';
-        cover.style.zIndex = 10;
-        dropdown.style.zIndex = 99999999;
+    // Search Course //
+    function inInput() {
+        const oscurecer = document.querySelector("#view")
+        const botonBuscar = document.querySelector("#search-button")
+        oscurecer.style.position = "fixed"
+        oscurecer.style.backgroundColor = "rgba(0,0,0,0.8)"
+        oscurecer.style.zIndex = "10"
+        botonBuscar.classList.remove("btn-outline-danger")
+        botonBuscar.classList.add("btn-danger")
     }
-
-    const salirInput = () => {
-        // const cover = document.querySelector("body");
-        // const buscador = document.querySelector("#buscador");
-        // cover.style.filter = 'brightness(1)';
-        // buscador.style.zIndex = 1;
-        const view = document.querySelector('#view');
-        const cover = document.querySelector('#container-cover');
-        const dropdown = document.querySelector('.dropdown-menu');
-        view.style.filter = 'brightness(1)';
-        view.style.zIndex = -9999;
-        cover.style.filter = 'brightness(1)';
-        cover.style.zIndex = -999;
-        dropdown.style.zIndex = 99999999;
+    // OnChange Search Course //
+    const outInput = () => {
+        const oscurecer = document.querySelector("#view")
+        const botonBuscar = document.querySelector("#search-button")
+        oscurecer.style.backgroundColor = "transparent"
+        oscurecer.style.zIndex = "-1"
+        botonBuscar.classList.remove("btn-danger")
+        botonBuscar.classList.add("btn-outline-danger")
+        // Switch to absolute position after 250ms //
+        setTimeout(
+            function() {
+                const oscurecer = document.querySelector("#view")
+                oscurecer.style.position = 'absolute'
+            }, 250);
     }
 
     return (
@@ -52,7 +44,7 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link mx-1 active">Inicio</Link>
+                            <Link to="/" className="nav-link mx-1">Inicio</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/Certificaciones" className="nav-link mx-1">Certificaciones</Link>
@@ -77,8 +69,8 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <form className="d-flex" id="buscador">
-                        <input onFocus={mostrarInput} onBlur={salirInput} className="form-control me-2" type="search" placeholder="Nombre del curso" aria-label="Search" />
-                        <button className="btn btn-outline-danger fw-bold" type="submit">Buscar curso</button>
+                        <input onFocus={inInput} onBlur={outInput} className="form-control me-2" type="search" placeholder="Nombre del curso" aria-label="Search" />
+                        <Link to="/BusquedaDeCurso" id="search-button" className="btn btn-outline-danger fw-bold" type="submit">Buscar curso</Link>
                     </form>
                 </div>
             </div>
