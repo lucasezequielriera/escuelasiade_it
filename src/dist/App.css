@@ -63,11 +63,13 @@ body {
   transition: all 1s;
 }
 .container-cover .content-left, #container-cover .content-left {
-  background-color: transparent;
-  width: 50%;
+  width: 70%;
+  height: 50%;
+  padding: 10px;
 }
 .container-cover .content-left h1, #container-cover .content-left h1 {
   font-size: 45px;
+  text-shadow: 10px 10px 10px #c7c7c7;
 }
 .container-cover .content-left h1 span, #container-cover .content-left h1 span {
   font-size: 150px;
@@ -77,26 +79,16 @@ body {
   animation-direction: alternate;
 }
 .container-cover .content-right, #container-cover .content-right {
-  height: 100px;
+  height: 300px;
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
-.container-cover .content-right .imagenes, #container-cover .content-right .imagenes {
-  display: inline-flex;
-  height: 100%;
-  width: auto;
+.container-cover .content-right a, #container-cover .content-right a {
+  height: 200px;
 }
-.container-cover .content-right .imagenes .imagen, #container-cover .content-right .imagenes .imagen {
-  background: #CCC;
-  border: 1px solid #FFF;
-  color: #FFF;
-  font-family: Arial;
-  font-size: 16px;
-  line-height: 100px;
-  height: 100%;
-  flex: 0 0 auto;
-  text-align: center;
-  width: 150px;
+.container-cover .content-right a img, #container-cover .content-right a img {
+  height: 300px;
 }
 
 @keyframes aparecer {
@@ -105,5 +97,10 @@ body {
   }
   to {
     color: #da0202;
+  }
+}
+@keyframes girar {
+  0% {
+    transform: translateX(100px);
   }
 }

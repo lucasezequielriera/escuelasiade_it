@@ -1,6 +1,7 @@
 import React, {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navbar from './components/navbar'
 import Cover from './components/cover'
+import Background from './components/background'
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Background />
 
       <Switch>
 
